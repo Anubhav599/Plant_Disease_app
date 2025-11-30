@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: plant-disease-classifier
+    runtime: docker
+    region: oregon
+    plan: free
+    dockerfilePath: ./Dockerfile
+    ports:
+      - port: 8501
+        protocol: HTTP
+    healthCheckPath: /
+    maxNonZeroPorts: 1
+    healthCheckInterval: 30
+    healthCheckTimeout: 3
+    healthCheckUnhealthyThreshold: 2
